@@ -4,8 +4,9 @@
   "description": "gPlatform Production Settings",
   "main": "dist/index.js",
   "scripts": {
-    "test": "eslint ./src",
-    "start": "mocha ./**/*.test.js --require babel-core/register",
+    "eslint": "eslint ./src",
+    "test": "yarn run eslint && mocha ./**/*.test.js --require babel-core/register",
+    "start": "node example/production/main.js",
     "build": "babel ./src --presets env --out-dir ./dist --ignore '**/*.test.js'"
   },
   "keywords": [

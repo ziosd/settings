@@ -11,7 +11,7 @@ var _loader = require('./loader');
 
 /**
  * Loads and merge the settings.
- * @param {object} options - settings options. 
+ * @param {object} options - settings options.
  */
 function load(_ref) {
   var defaults = _ref.defaults,
@@ -35,7 +35,7 @@ function load(_ref) {
 
 // const options = {
 //   file: 'settings.json' | { object } | settings
-//   base: asd || 'PRODUCTION_SETTINGS_' 
+//   base: asd || 'PRODUCTION_SETTINGS_'
 // }
 
 // module.exports = load(options)
