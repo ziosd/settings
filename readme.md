@@ -16,7 +16,7 @@ yarn add @gplatform/settings
 ./settings.json
 
 ```
-const { load } = require('@gplatform/setttings')
+const { load } = require('@gplatform/settings')
 const defaults = require('./settings.json')
 
 module.exports = load({defaults, variables: process.env, regex: /^MY_APP_PREFIX_/})

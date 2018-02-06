@@ -1,6 +1,6 @@
 {
   "name": "@gplatform/settings",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "gPlatform Production Settings",
   "main": "dist/index.js",
   "scripts": {
@@ -8,6 +8,10 @@
     "test": "yarn run eslint && mocha ./**/*.test.js --require babel-core/register",
     "start": "node example/production/main.js",
     "build": "babel ./src --presets env --out-dir ./dist --ignore '**/*.test.js'"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/ziosd/settings"
   },
   "keywords": [
     "gplatform",
