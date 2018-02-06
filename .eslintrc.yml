@@ -10,6 +10,9 @@ parserOptions:
     experimentalObjectRestSpread: true
     jsx: true
   sourceType: module
+globals:
+  describe: true
+  it: true
 rules:
   no-trailing-spaces:
     - 2

@@ -3,7 +3,7 @@ import { build, toObject } from './loader'
 
 /**
  * Loads and merge the settings.
- * @param {object} options - settings options. 
+ * @param {object} options - settings options.
  */
 export function load({defaults, variables, separator, regex, buildValue, json}) {
   const objectDefaults = isString(defaults) ? toObject(defaults, json) : defaults
@@ -20,7 +20,7 @@ export function load({defaults, variables, separator, regex, buildValue, json}) 
 
 // const options = {
 //   file: 'settings.json' | { object } | settings
-//   base: asd || 'PRODUCTION_SETTINGS_' 
+//   base: asd || 'PRODUCTION_SETTINGS_'
 // }
 
 // module.exports = load(options)

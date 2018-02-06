@@ -102,7 +102,7 @@ describe('loader.js', function() {
     })
 
   })
-  
+
   describe('#processSettings()', function() {
     it('should return a valid object with default settings', function() {
       const variables = {GPLATFORM_SETTINGS_name: 'Gary'}
