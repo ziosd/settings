@@ -7,7 +7,8 @@
     "eslint": "eslint ./src",
     "test": "yarn run eslint && mocha ./**/*.test.js --require babel-core/register",
     "start": "node example/production/main.js",
-    "build": "babel ./src --presets env --out-dir ./dist --ignore '**/*.test.js'"
+    "build": "babel ./src --presets env --out-dir ./dist --ignore '**/*.test.js' --no-comments --minified",
+    "build:dev": "babel"
   },
   "repository": {
     "type" : "git",

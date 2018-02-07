@@ -19,12 +19,25 @@ export function toObject(defaults, json) {
   return json ? JSON.parse(defaults) : require(defaults)
 }
 
+/**
+ * RegEx to detect json in string.
+ */
 const json = /^(\[|\{).*(\]|\})$/
 
+/**
+ * Builds value from string.
+ * @param {string} value - value to parse.
+ */
 export function defaultBuildValue(value) {
   return json.test((value || '').trim()) ? JSON.parse(value) : value
 }
 
+/**
+ * Excludes the unnecesary values. 
+ * @param {object} variables - variables as hash map.
+ * @param {regex} regex - filter for variables. 
+ * @param {function} buildValue - build value from string.
+ */
 export function processSettings(variables, regex = /^GPLATFORM_SETTINGS_/, buildValue = defaultBuildValue) {
   const result = {}
   for (const key in variables) {
@@ -34,7 +47,6 @@ export function processSettings(variables, regex = /^GPLATFORM_SETTINGS_/, build
   }
   return result
 }
-
 
 /**
  * Builds an object using separators for nested fields.
