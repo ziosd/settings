@@ -67,6 +67,6 @@ example/
 src/
 _config.yml
 .babelrc
-.eslint.yml
+.eslintrc.yml
 .gitignore
 yarn.lock
