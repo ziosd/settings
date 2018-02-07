@@ -6,3 +6,8 @@
 pre code {
     background-color: transparent !important;
 }
+
+pre code .highlight .err {
+    color: #999988;
+    background-color: transparent !important;
+}
