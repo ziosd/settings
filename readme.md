@@ -9,22 +9,24 @@
 
 Install module
 
-```
-yarn add @gplatform/settings
+```sh
+$ yarn add @gplatform/settings
 ```
 
-./settings.json
-
-```
+```js
+// ./settings/index.js
 const { load } = require('@gplatform/settings')
-const defaults = require('./settings.json')
+const defaults = require('./defaults.json')
 
-module.exports = load({defaults, variables: process.env, regex: /^MY_APP_PREFIX_/})
+module.exports = load({
+  defaults,
+  variables: process.env,
+  regex: /^MY_APP_PREFIX_/
+})
 ```
 
-./settings.json // in development just update this file & module allow you update for production
-
-```
+```json
+// ./settings/defaults.json
 {
   "name": "Gary Ascuy Anturiano",
   "db": {
@@ -34,9 +36,10 @@ module.exports = load({defaults, variables: process.env, regex: /^MY_APP_PREFIX_
 }
 ```
 
-./main.js
-```
-const settings = require('./settings') // from everywhere
+
+```js
+// ./main.js
+const settings = require('./settings')
 
 console.log(JSON.stringify(settings, null, 2))
 ```
@@ -45,13 +48,13 @@ console.log(JSON.stringify(settings, null, 2))
 
 To update the code you can run tests in watch mode
 
-```
+```sh
 $ yarn test -w
 ```
 
 After complete you can create a build using 
 
-```
+```sh
 $ yarn build
 ```
 
@@ -59,19 +62,19 @@ $ yarn build
 
 Run ./example/production/main.js - load defaults
 
-```
+```sh
 $ yarn start
 ```
 
 Run ./example/production/main.js - load defaults and merge with env variable
 
-```
+```sh
 $ MY_APP_PREFIX_name="Value Updated from environment var" yarn start
 ```
 
 Run ./example/production/main.js - load defaults and merge with env variable (more than one), It is really useful for deploy
 
-```
+```sh
 $ MY_APP_PREFIX_name="Value Updated from environment var" \
     MY_APP_PREFIX_db_host="mongodb.gplatform.local" \
     MY_APP_PREFIX_db_port="8000" \
@@ -80,4 +83,4 @@ $ MY_APP_PREFIX_name="Value Updated from environment var" \
 
 ### License
 
-MIT
+[MIT](LICENSE)
