@@ -1,0 +1,13 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+pre code {
+    background-color: transparent !important;
+}
+
+.highlight .err {
+    color: #999988 !important;
+    background-color: transparent !important;
+}
