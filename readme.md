@@ -13,18 +13,20 @@ Install module
 $ yarn add @gplatform/settings
 ```
 
-./settings.js
-
 ```js
+// ./settings/index.js
 const { load } = require('@gplatform/settings')
-const defaults = require('./settings.json')
+const defaults = require('./defaults.json')
 
-module.exports = load({defaults, variables: process.env, regex: /^MY_APP_PREFIX_/})
+module.exports = load({
+  defaults,
+  variables: process.env,
+  regex: /^MY_APP_PREFIX_/
+})
 ```
 
-./settings.json // in development just update this file & module allow you update for production
-
 ```json
+// ./settings/defaults.json
 {
   "name": "Gary Ascuy Anturiano",
   "db": {
@@ -34,9 +36,10 @@ module.exports = load({defaults, variables: process.env, regex: /^MY_APP_PREFIX_
 }
 ```
 
-./main.js
+
 ```js
-const settings = require('./settings') // from everywhere
+// ./main.js
+const settings = require('./settings')
 
 console.log(JSON.stringify(settings, null, 2))
 ```
@@ -80,5 +83,4 @@ $ MY_APP_PREFIX_name="Value Updated from environment var" \
 
 ### License
 
-MIT
 [MIT](LICENSE)
