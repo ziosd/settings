@@ -2,12 +2,10 @@
 
 ### Settings - Principles
 
-- Easy to configure in Development
+- Easy to use in Development
 - Easy to update in Production
 
-### Config (you can find example in ./example)
-
-Install module
+### How can I use this? (./example folder)
 
 ```sh
 $ yarn add @gplatform/settings
@@ -17,9 +15,11 @@ $ yarn add @gplatform/settings
 // ./settings/index.js
 const { load } = require('@gplatform/settings')
 const defaults = require('./defaults.json')
+const schema = require('./schema.js')
 
 module.exports = load({
   defaults,
+  schema, // Joi Schema - Optional
   variables: process.env,
   regex: /^MY_APP_PREFIX_/
 })
@@ -29,23 +29,66 @@ module.exports = load({
 // ./settings/defaults.json
 {
   "name": "Gary Ascuy Anturiano",
-  "db": {
+  "server": {
     "host": "localhost",
-    "port": 27017
+    "port": "27017"
+  },
+  "mongo": {
+    "uri": "mongodb://localhost:27017/prod"
   }
 }
 ```
 
 ```js
-// ./main.js
-const { settings, get } = require('./settings')
+// ./settings/schema.js
+const joi = require('joi')
 
-// use as object 
-console.log(JSON.stringify(settings, null, 2))
+module.exports = {
+  name: joi.string().min(3).max(30).required(),
+  server: {
+    host: joi.string().required(),
+    port: joi.number().integer().min(0).max(65535)
+  },
+  mongo: {
+    uri: joi.string().required()
+  }
+}
+```
 
-// use individual field
-console.log(get('db'))
-console.log(get('db.host'))
+```js
+// ./app.js
+const express = require('express')
+const { get } = require('./settings')
+const { log } = console
+const app = express()
+
+const name = get('name')
+const mongoUri = get('mongo.uri')
+const {host, port} = get('server')
+
+app.get('/', (req, res) => res.send(name))
+app.listen(port, host, () => {
+  log(`Server Created, Ready to listen at ${host}:${port}`)
+})
+```
+
+### Manual Tests (node example/main.js)
+
+```sh
+# Run with defaults | Development 
+$ node example/app.js
+```
+
+```sh
+# Update name in settings | Production
+$ MY_APP_PREFIX_name="Value Updated from environment var" node example/main.js
+```
+
+```sh
+# Update server.host and server.port in settings | Production
+$ MY_APP_PREFIX_server_host="mongodb.gplatform.local" \
+  MY_APP_PREFIX_server_port="8000" \
+  node example/main.js
 ```
 
 ### Development 
@@ -62,28 +105,10 @@ After complete you can create a build using
 $ yarn build
 ```
 
-### Manual Tests 
+### Coming soon
 
-Run ./example/production/main.js - load defaults
-
-```sh
-$ yarn start
-```
-
-Run ./example/production/main.js - load defaults and merge with env variable
-
-```sh
-$ MY_APP_PREFIX_name="Value Updated from environment var" yarn start
-```
-
-Run ./example/production/main.js - load defaults and merge with env variable (more than one), It is really useful for deploy
-
-```sh
-$ MY_APP_PREFIX_name="Value Updated from environment var" \
-    MY_APP_PREFIX_db_host="mongodb.gplatform.local" \
-    MY_APP_PREFIX_db_port="8000" \
-    yarn start
-```
+- Better docs and examples
+- Auto-detect schema from defaults
 
 ### License
 

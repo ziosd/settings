@@ -1,5 +1,6 @@
 const express = require('express')
 const { get } = require('./settings')
+const { log } = console
 const app = express()
 
 const name = get('name')
