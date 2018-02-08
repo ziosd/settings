@@ -81,7 +81,8 @@ $ node example/app.js
 
 ```sh
 # Update name in settings | Production
-$ MY_APP_PREFIX_name="Value Updated from environment var" node example/main.js
+$ MY_APP_PREFIX_name="Production Name" \
+    node example/main.js
 ```
 
 ```sh
