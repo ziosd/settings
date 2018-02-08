@@ -1,18 +1,18 @@
 {
   "name": "@gplatform/settings",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "gPlatform Production Settings",
   "main": "dist/index.js",
   "scripts": {
     "eslint": "eslint ./src",
     "test": "yarn run eslint && mocha ./**/*.test.js --require babel-core/register",
-    "start": "node example/production/main.js",
+    "start": "node example/main.js",
     "build": "babel ./src --presets env --out-dir ./dist --ignore '**/*.test.js' --no-comments --minified",
     "build:dev": "babel"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/ziosd/settings"
+    "type": "git",
+    "url": "https://github.com/ziosd/settings"
   },
   "keywords": [
     "gplatform",
@@ -23,7 +23,8 @@
   "author": "gary.ascuy@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.5"
+    "lodash": "^4.17.5",
+    "mpath": "^0.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

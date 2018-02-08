@@ -1,0 +1,10 @@
+{
+  "name": "Gary Ascuy Anturiano",
+  "server": {
+    "host": "localhost",
+    "port": "27017"
+  },
+  "mongo": {
+    "uri": "mongodb://localhost:27017/prod"
+  }
+}
