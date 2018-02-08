@@ -5,7 +5,7 @@
 - Easy to configure in Development
 - Easy to update in Production
 
-### Config (you can find example in ./example/production)
+### Config (you can find example in ./example)
 
 Install module
 
@@ -36,12 +36,16 @@ module.exports = load({
 }
 ```
 
-
 ```js
 // ./main.js
-const settings = require('./settings')
+const { settings, get } = require('./settings')
 
+// use as object 
 console.log(JSON.stringify(settings, null, 2))
+
+// use individual field
+console.log(get('db'))
+console.log(get('db.host'))
 ```
 
 ### Development 
