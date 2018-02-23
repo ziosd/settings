@@ -20,6 +20,7 @@ const schema = require('./schema.js')
 module.exports = load({
   defaults,
   schema, // Joi Schema - Optional
+  commandLineInterface: true, // Experimental
   variables: process.env,
   regex: /^MY_APP_PREFIX_/
 })
@@ -88,8 +89,22 @@ $ MY_APP_PREFIX_name="Production Name" \
 ```sh
 # Update server.host and server.port in settings | Production
 $ MY_APP_PREFIX_server_host="mongodb.gplatform.local" \
-  MY_APP_PREFIX_server_port="8000" \
-  node example/main.js
+    MY_APP_PREFIX_server_port="8000" \
+    node example/main.js
+```
+
+```sh
+# Command Line Interface: Update server.host and server.port in settings with middle score
+$ node example/main.js \
+    --server-port '8000' \
+    --server-port 'mongodb.gplatform.local' 
+```
+
+```sh
+# Command Line Interface: Update server.host and server.port in settings with dot 
+$ node example/main.js \
+    --server.port '8000' \
+    --server.port 'mongodb.gplatform.local' 
 ```
 
 ### Development 
