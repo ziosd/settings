@@ -29,6 +29,11 @@ describe('index.js', function() {
       assert.deepStrictEqual(settings, {name: 'b'})
     })
 
+    it('should return a object with parameters with command line interface', function() {
+      const {settings} = load({defaults: {name: 'a'}, commandLineInterface: true, variables: {}})
+      assert.deepStrictEqual(settings, {name: 'a', require: 'babel-core/register'})
+    })
+
     it('should return a config object overwriting default', function() {
       const envVariables = {
         PATH: 'other',
