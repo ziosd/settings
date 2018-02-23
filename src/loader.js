@@ -33,9 +33,9 @@ export function defaultBuildValue(value) {
 }
 
 /**
- * Excludes the unnecesary values. 
+ * Excludes the unnecesary values.
  * @param {object} variables - variables as hash map.
- * @param {regex} regex - filter for variables. 
+ * @param {regex} regex - filter for variables.
  * @param {function} buildValue - build value from string.
  */
 export function processSettings(variables, regex = /^GPLATFORM_SETTINGS_/, buildValue = defaultBuildValue) {

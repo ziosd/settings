@@ -45,7 +45,7 @@ export function load({defaults, variables, schema, separator, regex, json, build
   if (schema) {
     const {error, value} = joi.validate(settings, schema, {convert: true, presence: 'required'})
     settings = value
-    if (error) { 
+    if (error) {
       (isFunction(exit) ? exit : exitOnError(message))(error, value)
     }
   }
