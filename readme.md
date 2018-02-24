@@ -5,7 +5,24 @@
 - Easy to use in Development
 - Easy to update in Production
 
-### How can I use this? (./example folder)
+### CLI - How can I use this?
+
+```sh
+# Creates ./settings folder structure
+$ npx @gplatform/settings --init MY_APP_PREFIX
+```
+
+```sh
+# Builds config as env variable for docker
+$ npx @gplatform/settings --build
+```
+
+```sh
+# Create .env file for docker
+$ npx @gplatform/settings --env > production.env
+```
+
+### Manual - How can I use this? (./example folder)
 
 ```sh
 $ yarn add @gplatform/settings
