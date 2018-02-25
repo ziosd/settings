@@ -1,14 +1,13 @@
 {
   "name": "@gplatform/settings",
-  "version": "1.1.4",
+  "version": "1.2.2",
   "description": "gPlatform Production Settings",
   "main": "dist/index.js",
   "scripts": {
     "eslint": "eslint ./src",
     "test": "yarn run eslint && mocha ./**/*.test.js --require babel-core/register",
     "start": "node example/main.js",
-    "build": "babel ./src --presets env --out-dir ./dist --ignore '**/*.test.js' --no-comments --minified",
-    "build:dev": "babel"
+    "build": "babel ./src --presets env --out-dir ./dist --ignore '**/*.test.js' --no-comments --minified"
   },
   "repository": {
     "type": "git",
@@ -18,7 +17,9 @@
     "gplatform",
     "settings",
     "config",
-    "production"
+    "development",
+    "production",
+    "docker"
   ],
   "author": "gary.ascuy@gmail.com",
   "license": "MIT",
@@ -26,6 +27,9 @@
     "joi": "^13.1.2",
     "lodash": "^4.17.5",
     "mpath": "^0.3.0"
+  },
+  "bin": {
+    "settings": "dist/bin/cli.js"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
