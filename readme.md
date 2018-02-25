@@ -5,6 +5,15 @@
 - Easy to use in Development
 - Easy to update in Production
 
+### Features
+
+- Node.JS Configuration
+- Command line interface to create settings folder
+- Command line interface to build .env for docker deploy
+- Atomic Object Merging / Partial Updates
+- Environment Variables
+- Command Line Arguments
+
 ### CLI - How can I use this?
 
 ```sh
@@ -90,11 +99,11 @@ app.listen(port, host, () => {
 })
 ```
 
-### Manual Tests (node example/main.js)
+### Use (node example/main.js)
 
 ```sh
 # Run with defaults | Development 
-$ node example/app.js
+$ node example/main.js
 ```
 
 ```sh
@@ -111,20 +120,13 @@ $ MY_APP_PREFIX_server_host="mongodb.gplatform.local" \
 ```
 
 ```sh
-# Command Line Interface: Update server.host and server.port in settings with middle score
+# Update server.host and server.port in settings | Production
 $ node example/main.js \
     --server-port '8000' \
-    --server-port 'mongodb.gplatform.local' 
+    --server-host 'mongodb.gplatform.local' 
 ```
 
-```sh
-# Command Line Interface: Update server.host and server.port in settings with dot 
-$ node example/main.js \
-    --server.port '8000' \
-    --server.port 'mongodb.gplatform.local' 
-```
-
-### Development 
+### Development - Contribution
 
 To update the code you can run tests in watch mode
 
@@ -141,7 +143,6 @@ $ yarn build
 ### Coming soon
 
 - Better docs and examples
-- Auto-detect schema from defaults
 
 ### License
 
