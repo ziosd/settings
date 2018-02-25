@@ -1,6 +1,6 @@
 {
   "name": "Gary Ascuy Anturiano",
-  "server": {
+  "service": {
     "host": "localhost",
     "port": "27017"
   },

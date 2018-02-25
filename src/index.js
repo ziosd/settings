@@ -38,9 +38,13 @@ export function exitOnError(title = null, code = 1, verbose = false) {
  * @param {object} options - settings options.
  * @returns {object} settings, get and schema fields.
  */
-export function load({defaults, variables, schema, commandLineInterface, separator, regex, json, buildValue, exit}) {
+export function load({app, defaults, variables, schema, commandLineInterface, separator, regex, json, buildValue, exit}) {
   const objectDefaults = isString(defaults) ? toObject(defaults, json) : defaults
   let settings = merge(objectDefaults, build(variables, separator, regex, buildValue))
+
+  if (app) {
+    settings = JSON.parse(app)
+  }
 
   if (commandLineInterface) {
     const args = process.argv.slice(2)
