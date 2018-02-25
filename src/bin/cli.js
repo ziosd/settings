@@ -9,15 +9,15 @@ const { load } = require('@gplatform/settings')
 
 const defaults = require('./settings.json')
 const schema = require('./schema.js')
-const app = '${name}'
-  
+const appName = '${name}'
+
 module.exports = load({
-  app,
   defaults,
-  schema, // Joi Schema - Optional
-  commandLineInterface: true, // Experimental
+  schema,
+  commandLineInterface: true,
+  app: process.env[appName],
   variables: process.env,
-  regex: new RegExp('^' + app + '_')
+  regex: new RegExp('^' + appName + '_')
 })
 `
 }

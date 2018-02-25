@@ -18,7 +18,9 @@
     "gplatform",
     "settings",
     "config",
-    "production"
+    "development",
+    "production",
+    "docker"
   ],
   "author": "gary.ascuy@gmail.com",
   "license": "MIT",
