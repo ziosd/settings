@@ -5,7 +5,7 @@ const app = express()
 
 const name = get('name')
 const mongoUri = get('mongo.uri')
-const {host, port} = get('server')
+const {host, port} = get('service')
 
 app.get('/', (req, res) => res.send(name))
 app.listen(port, host, () => {
